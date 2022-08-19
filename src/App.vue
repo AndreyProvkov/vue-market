@@ -43,4 +43,8 @@ body {
   grid-template-columns: repeat(12, 1fr);
   grid-column-gap: 4rem;
 }
+
+.uppercase {
+    text-transform: uppercase;
+}
 </style>
