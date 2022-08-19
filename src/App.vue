@@ -34,6 +34,7 @@ body {
   font-size: 1.6rem;
   font-weight: 400;
   font-style: normal;
+  line-height: 150%;
 }
 
 .wrapper {
@@ -46,5 +47,19 @@ body {
 
 .uppercase {
     text-transform: uppercase;
+}
+
+.btn {
+  box-sizing: border-box;
+  background: #70C05B;
+  color: #FFFFFF;
+  border-radius: .4rem;
+  padding: .8rem 2rem;
+  text-align: center;
+  cursor: pointer;
+  transition: .3s all;
+  &:hover {
+    background: #559245;
+  }
 }
 </style>

@@ -14,7 +14,10 @@
                         <span class="uppercase">ФЛАГ</span>&nbsp;Покупки
                     </p>
                 </div>
-            </router-link> 
+            </router-link>
+            <a class="btn header__btn">
+                Регистрация
+            </a>
         </div> 
     </header>
 </template>
@@ -37,6 +40,9 @@ a {
     background-color: #FFF;
     box-shadow: .2rem .4rem .8rem rgba(0, 0, 0, .1);
     padding: 1.7rem 11.6rem;
+    &__btn {
+        grid-column: -3 / -1;
+    }
 }
 .logo {
     display: flex;
