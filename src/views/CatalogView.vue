@@ -1,11 +1,28 @@
 <template>
-  <div>
-    <h1>Catalog</h1>
-  </div>
+    <h1 class="title">Каталог</h1>
+    <CatalogItem :catalogItems=catalogItems />
 </template>
 
 <script>
+import CatalogItem from '@/components/CatalogItem.vue'
+
 export default {
-  name: 'CatalogView'
+  name: 'CatalogView',
+  components: {
+    CatalogItem
+  },
+  props: {
+    catalogItems: Array
+  }
 }
 </script>
+
+<style scoped lang="scss">
+.title {
+  margin: 0;
+  grid-column: 1 / 13;
+  font-size: 6.4rem;
+  line-height: 150%;
+  margin-bottom: 6rem;
+}
+</style>

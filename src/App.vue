@@ -2,7 +2,7 @@
   <HeaderBar />
   <div class='wrapper'>
     <BreadCrumb v-if="$route.name !== 'home'" />
-    <router-view/>
+    <router-view :catalogItems=catalogItems />
   </div>
 </template>
 
@@ -15,6 +15,66 @@ export default {
   components: {
     HeaderBar,
     BreadCrumb,
+  },
+  data() {
+    return {
+      catalogItems: [
+        {
+          id: 1,
+          title: 'Молоко, сыр, яйцо',
+          wide: true,
+          img: 'milk-eggs.jpg'
+        },
+        {
+          id: 2,
+          title: 'Хлеб',
+          wide: false,
+          img: 'bread.jpg'
+        },
+        {
+          id: 3,
+          title: 'Фрукты и овощи',
+          wide: false,
+          img: 'fruits-vegetables.jpg'
+        },
+        {
+          id: 4,
+          title: 'Бакалея',
+          wide: false,
+          img: 'grocery.jpg'
+        },
+        {
+          id: 5,
+          title: 'Здоровое питание',
+          wide: false,
+          img: 'healthy-eating.jpg'
+        },
+        {
+          id: 6,
+          title: 'Зоотовары',
+          wide: true,
+          img: 'pet-supplies.jpg'
+        },
+        {
+          id: 7,
+          title: 'Детское питание',
+          wide: false,
+          img: 'children-food.jpg'
+        },
+        {
+          id: 8,
+          title: 'Мясо, птица, колбаса',
+          wide: true,
+          img: 'meat.jpg'
+        },
+        {
+          id: 9,
+          title: 'Непродовольственные товары',
+          wide: false,
+          img: 'non-grocery-goods.jpg'
+        }
+      ]
+    }
   }
 }
 </script>
@@ -38,8 +98,10 @@ body {
 }
 
 .wrapper {
-  max-width: 120.8rem;
+  box-sizing: border-box;
+  max-width: 128rem;
   margin: 0 auto;
+  padding: 0 4rem;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-column-gap: 4rem;
