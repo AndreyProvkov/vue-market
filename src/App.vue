@@ -1,7 +1,7 @@
 <template>
   <HeaderBar />
   <div class='wrapper'>
-    <BreadCrumb />
+    <BreadCrumb v-if="$route.name !== 'home'" />
     <router-view/>
   </div>
 </template>
