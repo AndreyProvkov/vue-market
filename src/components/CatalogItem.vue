@@ -1,16 +1,18 @@
 <template>
-  <div
-    :class="{item, 'item_wide': item.wide}"
-    :key="item.id"
-    v-for="item in catalogItems"
-  >
-    <span class="item__title">
-      {{ item.title }}
-    </span>
-    <img
-      class="item__img"
-      :src="require(`@/assets/item_img/${item.img}`)"
-    />
+  <div class="list">
+    <div
+      :class="{item, 'item_wide': item.wide}"
+      :key="item.id"
+      v-for="item in catalogItems"
+    >
+      <span class="item__title">
+        {{ item.title }}
+      </span>
+      <img
+        class="item__img"
+        :src="require(`@/assets/item_img/${item.img}`)"
+      />
+    </div>
   </div>
 </template>
 
@@ -24,10 +26,17 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.list {
+  display: grid;
+  grid-auto-flow: row dense;
+  grid-template-columns: repeat(auto-fit, minmax(23rem, 1fr));
+  grid-gap: 4rem;
+  margin-bottom: 9rem;
+}
 .item {
-  grid-column: span 3;
   overflow: hidden;
-  margin-bottom: 4rem;
+  width: 100%;
+  max-height: 20rem;
   position: relative;
   cursor: pointer;
   background: #FFF;
@@ -48,7 +57,7 @@ export default {
     }
   }
   &_wide {
-    grid-column: span 6;
+    grid-column: span 2;
   }
   &__title {
     position: absolute;

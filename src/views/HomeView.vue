@@ -13,7 +13,6 @@ export default {
 
 <style scoped lang="scss">
 h1 {
-    grid-column: 1 / 13;
     margin: 0;
     margin-bottom: 2rem;
 }

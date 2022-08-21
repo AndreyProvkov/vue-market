@@ -20,7 +20,6 @@ export default {
 <style scoped lang="scss">
 .title {
   margin: 0;
-  grid-column: 1 / 13;
   font-size: 6.4rem;
   line-height: 150%;
   margin-bottom: 6rem;
