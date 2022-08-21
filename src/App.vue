@@ -1,5 +1,9 @@
 <template>
-  <HeaderBar />
+  <ModalForm
+    v-if="modalActive"
+    @toggleModalWindow="toggleModalWindow($event)"
+  />
+  <HeaderBar @toggleModalWindow="toggleModalWindow($event)" />
   <div class='wrapper'>
     <BreadCrumb v-if="$route.name !== 'home'" />
     <router-view :catalogItems=catalogItems />
@@ -7,17 +11,20 @@
 </template>
 
 <script>
+import ModalForm from '@/components/ModalForm/ModalForm.vue'
 import HeaderBar from '@/components/HeaderBar.vue'
-import BreadCrumb from '@/components/BreadCrumb.vue';
+import BreadCrumb from '@/components/BreadCrumb.vue'
 
 export default {
   name: 'App',
   components: {
+    ModalForm,
     HeaderBar,
-    BreadCrumb,
+    BreadCrumb
   },
   data() {
     return {
+      modalActive: false,
       catalogItems: [
         {
           id: 1,
@@ -74,6 +81,17 @@ export default {
           img: 'non-grocery-goods.jpg'
         }
       ]
+    }
+  },
+  methods: {
+    toggleModalWindow (e) {
+      const el = e.target
+      if (el.className === 'btn') {
+        this.modalActive = true
+      }
+      if (el.className === 'modal' || el.closest('.close')) {
+        this.modalActive = false
+      }
     }
   }
 }

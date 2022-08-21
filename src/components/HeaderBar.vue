@@ -16,7 +16,10 @@
                         </p>
                     </div>
                 </router-link>
-                <a class="btn">
+                <a
+                    class="btn"
+                    @click="toggleModalWindow($event)"
+                >
                     Регистрация
                 </a>
             </div>
@@ -26,7 +29,12 @@
 
 <script>
 export default {
-    name: 'HeaderBar'
+    name: 'HeaderBar',
+    methods: {
+        toggleModalWindow (e) {
+            this.$emit('toggleModalWindow', e)
+        }
+    }
 }
 </script>
 
