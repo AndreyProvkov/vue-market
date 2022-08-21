@@ -98,13 +98,9 @@ body {
 }
 
 .wrapper {
-  box-sizing: border-box;
-  max-width: 128rem;
+  max-width: 120rem;
   margin: 0 auto;
   padding: 0 4rem;
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-column-gap: 4rem;
 }
 
 .uppercase {
