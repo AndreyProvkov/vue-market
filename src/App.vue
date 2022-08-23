@@ -140,6 +140,7 @@ body {
 }
 
 .btn-modal {
+    font-family: inherit;
     cursor: pointer;
     position: relative;
     z-index: 1;
