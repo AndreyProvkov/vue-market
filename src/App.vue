@@ -138,4 +138,22 @@ body {
     background: #559245;
   }
 }
+
+.btn-modal {
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    background: #FCD5BA;
+    border-radius: 4px;
+    padding: 1.6rem;
+    width: 100%;
+    max-width: 26rem;
+    font-size: 2.4rem;
+    color: #FF6633;
+    border: none;
+    transition: .3s all;
+    &:hover {
+      background: #ffe5d2;
+    }
+}
 </style>
