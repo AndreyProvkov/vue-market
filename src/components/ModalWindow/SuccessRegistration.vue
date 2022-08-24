@@ -34,6 +34,12 @@ export default {
         max-width: 31.5rem;
         line-height: 150%;
         margin: 0 auto 4rem;
+        @media screen and (max-width: 750px) {
+            font-size: 2rem;
+        }
+    }
+    @media screen and (max-width: 750px) {
+        min-width: 0;
     }
 }
 </style>

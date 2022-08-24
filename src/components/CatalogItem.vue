@@ -32,6 +32,17 @@ export default {
   grid-template-columns: repeat(auto-fit, minmax(23rem, 1fr));
   grid-gap: 4rem;
   margin-bottom: 9rem;
+  @media screen and (max-width: 600px) {
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  }
+  @media screen and (max-width: 445px) {
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+    grid-gap: 3rem;
+  }
+  @media screen and (max-width: 400px) {
+    grid-template-columns: 1fr;
+    grid-gap: 2rem;
+  }
 }
 .item {
   overflow: hidden;
@@ -58,6 +69,9 @@ export default {
   }
   &_wide {
     grid-column: span 2;
+    @media screen and (max-width: 400px) {
+      grid-column: span 1;
+    }
   }
   &__title {
     position: absolute;

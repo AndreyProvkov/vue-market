@@ -95,5 +95,8 @@ export default {
     position: relative;
     overflow: hidden;
     max-height: 75vh;
+    @media screen and (max-width: 550px) {
+        padding: 5.2rem 1.7rem 3rem;
+    }
 }
 </style>

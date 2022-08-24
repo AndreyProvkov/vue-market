@@ -23,5 +23,9 @@ export default {
   font-size: 6.4rem;
   line-height: 150%;
   margin-bottom: 6rem;
+  @media screen and (max-width: 600px) {
+    font-size: 4.8rem;
+    margin-bottom: 3rem;
+  }
 }
 </style>

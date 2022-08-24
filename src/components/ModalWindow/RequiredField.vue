@@ -112,7 +112,7 @@ export default {
 <style scoped lang="scss">
 .required {
     display: grid;
-    grid-template-columns: repeat(2, minmax(auto, 26rem));
+    grid-template-columns: repeat(2, minmax(10rem, 26rem));
     column-gap: 3.2rem;
     &__title {
         font-weight: 700;
@@ -120,19 +120,40 @@ export default {
         grid-column: span 2;
         margin: 0;
         margin-bottom: 2.4rem;
+        @media screen and (max-width: 550px) {
+            grid-column: span 1;
+        }
+    }
+    @media screen and (max-width: 550px) {
+        grid-template-columns: 1fr
     }
 }
 .left-side,
 .right-side {
     margin-bottom: 4rem;
+    @media screen and (max-width: 550px) {
+        margin: 0;
+    }
+}
+.right-side {
+    @media screen and (max-width: 550px) {
+        margin-bottom: 3rem;
+    }
 }
 .label {
     display: block;
     text-align: left;
     color: #8F8F8F;
     margin-bottom: 1.6rem;
+    @media screen and (max-width: 550px) {
+        width: 85%;
+        margin: 0 auto 1.6rem;
+    }
     &:last-child {
         margin: 0;
+        @media screen and (max-width: 550px) {
+            margin: 0 auto;
+        }
     }
     &__password {
         position: relative;

@@ -87,6 +87,9 @@ a {
         font-weight: bold;
         margin: 0;
         @extend %filter-drop-shadow;
+        @media screen and (max-width: 445px) {
+            display: none;
+        }
     }
 }
 </style>
