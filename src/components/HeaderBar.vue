@@ -18,6 +18,7 @@
                 </router-link>
                 <a
                     class="btn"
+                    data-modal="open"
                     @click="toggleModalWindow($event)"
                 >
                     Регистрация

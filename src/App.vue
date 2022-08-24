@@ -86,12 +86,10 @@ export default {
   methods: {
     toggleModalWindow (e) {
       const el = e.target
-      if (el.className === 'btn') {
+      if (el.dataset.modal === 'open') {
         this.modalActive = true
       }
-      if (el.className === 'modal'
-          || el.closest('.close')
-          || el.dataset.modal === 'close') {
+      if (el.dataset.modal === 'close') {
         this.modalActive = false
       }
     }
