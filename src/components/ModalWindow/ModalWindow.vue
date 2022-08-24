@@ -4,6 +4,7 @@
         @click="toggleModalWindow($event)"
     >
         <div class="content">
+            <SuccessRegistration />
             <button class="close">
                 <svg class="close__svg" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M13.3536 0.646447C13.5488 0.841709 13.5488 1.15829 13.3536 1.35355L1.35355 13.3536C1.15829 13.5488 0.841709 13.5488 0.646447 13.3536C0.451184 13.1583 0.451184 12.8417 0.646447 12.6464L12.6464 0.646447C12.8417 0.451184 13.1583 0.451184 13.3536 0.646447Z"/>
@@ -157,8 +158,13 @@
 </template>
 
 <script>
+import SuccessRegistration from './SuccessRegistration.vue'
+
 export default {
-    name: 'ModalForm',
+    name: 'ModalWindow',
+    components: {
+        SuccessRegistration
+    },
     methods: {
         toggleModalWindow (e) {
             this.$emit('toggleModalWindow', e)
@@ -191,7 +197,7 @@ export default {
     text-align: center;
     position: relative;
     overflow: hidden;
-    height: 75vh;
+    max-height: 75vh;
     &__title {
         font-weight: 700;
         font-size: 2.4rem;

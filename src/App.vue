@@ -1,5 +1,5 @@
 <template>
-  <ModalForm
+  <ModalWindow
     v-if="modalActive"
     @toggleModalWindow="toggleModalWindow($event)"
   />
@@ -11,14 +11,14 @@
 </template>
 
 <script>
-import ModalForm from '@/components/ModalForm/ModalForm.vue'
+import ModalWindow from '@/components/ModalWindow/ModalWindow.vue'
 import HeaderBar from '@/components/HeaderBar.vue'
 import BreadCrumb from '@/components/BreadCrumb.vue'
 
 export default {
   name: 'App',
   components: {
-    ModalForm,
+    ModalWindow,
     HeaderBar,
     BreadCrumb
   },
@@ -124,7 +124,7 @@ body {
 }
 
 .uppercase {
-    text-transform: uppercase;
+  text-transform: uppercase;
 }
 
 .btn {
@@ -142,21 +142,21 @@ body {
 }
 
 .btn-modal {
-    font-family: inherit;
-    cursor: pointer;
-    position: relative;
-    z-index: 1;
-    background: #FCD5BA;
-    border-radius: 4px;
-    padding: 1.6rem;
-    width: 100%;
-    max-width: 26rem;
-    font-size: 2.4rem;
-    color: #FF6633;
-    border: none;
-    transition: .3s all;
-    &:hover {
-      background: #ffe5d2;
-    }
+  font-family: inherit;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  background: #FCD5BA;
+  border-radius: 4px;
+  padding: 1.6rem;
+  width: 100%;
+  max-width: 26rem;
+  font-size: 2.4rem;
+  color: #FF6633;
+  border: none;
+  transition: .3s all;
+  &:hover {
+    background: #ffe5d2;
+  }
 }
 </style>
