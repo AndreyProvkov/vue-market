@@ -1,0 +1,205 @@
+<template>
+    <div class="required">
+        <p class="required__title">
+            Обязательные поля
+        </p>
+        <div class="left-side">
+            <label class="label">
+                Телефон
+                <input
+                    class="input"
+                    type="text"
+                />
+            </label>
+            <label class="label">
+                Фамилия
+                <input
+                    class="input"
+                    type="text"
+                />
+            </label>
+            <label class="label">
+                Имя
+                <input
+                    class="input"
+                    type="text"
+                />
+            </label>
+            <label class="label">
+                Пароль
+                <div class="label__password">
+                    <input
+                        class="input input__password"
+                        type="text"
+                    />
+                    <button
+                        class="btn-show-pass"
+                        type="button"
+                    ></button>
+                </div>
+            </label>
+            <label class="label">
+                Повторите пароль
+                <div class="label__password">
+                    <input
+                        class="input input__password"
+                        type="text"
+                    />
+                    <button
+                        class="btn-show-pass"
+                        type="button"
+                    ></button>
+                </div>
+            </label>
+        </div>
+        <div class="right-side">
+            <label class="label">
+                Дата рождения
+                <input
+                    class="input"
+                    type="text"
+                />
+            </label>
+            <label class="label">
+                Населенный пункт
+                <input
+                    class="input"
+                    type="text"
+                />
+            </label>
+            <div class="label">
+                <span class="label__text">
+                    Пол
+                </span>
+                <div class="label__gender">
+                    <input
+                        checked
+                        id="gender-man"
+                        type="radio"
+                        name="gender"
+                        class="input__gender"
+                    />
+                    <label
+                        class="label__radio-btn"
+                        for="gender-man"
+                    >
+                        Мужской
+                    </label>
+                    <input
+                        id="gender-woman"
+                        type="radio"
+                        name="gender"
+                        class="input__gender"
+                    />
+                    <label
+                        class="label__radio-btn"
+                        for="gender-woman"
+                    >
+                        Женский
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+export default {
+    name: 'RequiredField'
+}
+</script>
+
+<style scoped lang="scss">
+.required {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(auto, 26rem));
+    column-gap: 3.2rem;
+    &__title {
+        font-weight: 700;
+        font-size: 1.8rem;
+        grid-column: span 2;
+        margin: 0;
+        margin-bottom: 2.4rem;
+    }
+}
+.left-side,
+.right-side {
+    margin-bottom: 4rem;
+}
+.label {
+    display: block;
+    text-align: left;
+    color: #8F8F8F;
+    margin-bottom: 1.6rem;
+    &:last-child {
+        margin: 0;
+    }
+    &__password {
+        position: relative;
+    }
+    &__text {
+        display: block;
+    }
+    &__gender {
+        background: #F3F2F1;
+        border-radius: 4px;
+        padding: .4rem;
+        display: flex;
+    }
+    &__radio-btn {
+        font-weight: 400;
+        font-size: 1.2rem;
+        color: #414141;
+        padding: .4rem .8rem;
+        flex: 1 1 auto;
+        align-items: center;
+        text-align: center;
+        cursor: pointer;
+        border-radius: 4px;
+        background: #F3F2F1;
+        transition: .3s all;
+    }
+}
+.input {
+    font-family: inherit;
+    font-size: inherit;
+    color: #414141;
+    box-sizing: border-box;
+    padding: .8rem 1.6rem;
+    width: 100%;
+    background: #FFFFFF;
+    outline: none;
+    border-radius: 4px;
+    border: 1px solid #BFBFBF;
+    transition: .3s all;
+    &:focus {
+        box-shadow: 4px 8px 16px rgba(112, 192, 91, 0.2);
+        border: 1px solid #70C05B;
+    }
+    &__password {
+        padding-right: 4rem;
+    }
+    &__gender {
+        position: absolute;
+        z-index: -1;
+        opacity: 0;
+        &:checked + .label__radio-btn {
+            background: #70C05B;
+            color: #fff;
+        }
+    }
+}
+.btn-show-pass {
+    background: url("@/assets/icons/eye-off.svg") no-repeat center center;
+    width: 2.4rem;
+    height: 2.4rem;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+    position: absolute;
+    top: 50%;
+    right: .85rem;
+    transform: translateY(-50%);
+}
+</style>
