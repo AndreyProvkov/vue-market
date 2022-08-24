@@ -13,7 +13,6 @@ export default {
 
 <style scoped lang="scss">
 .breadcrumb {
-    grid-column: 1 / 13;
     list-style: none;
     color: #414141;
     font-size: 1.2rem;
