@@ -89,7 +89,9 @@ export default {
       if (el.className === 'btn') {
         this.modalActive = true
       }
-      if (el.className === 'modal' || el.closest('.close')) {
+      if (el.className === 'modal'
+          || el.closest('.close')
+          || el.dataset.modal === 'close') {
         this.modalActive = false
       }
     }
