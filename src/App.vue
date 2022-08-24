@@ -89,7 +89,7 @@ export default {
       if (el.dataset.modal === 'open') {
         this.modalActive = true
       }
-      if (el.dataset.modal === 'close') {
+      if (el.dataset.modal === 'close' || el.closest('.modal__close')) {
         this.modalActive = false
       }
     }
