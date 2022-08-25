@@ -59,7 +59,9 @@
                 Дата рождения
                 <input
                     class="input"
-                    type="text"
+                    type="date"
+                    v-model="birthday"
+                    @blur="checkBirthday"
                 />
             </label>
             <label class="label">
@@ -110,7 +112,8 @@ export default {
     name: 'RequiredField',
     data () {
         return {
-            phone: ''
+            phone: '',
+            birthday: '',
         }
     },
     methods: {
@@ -119,6 +122,20 @@ export default {
             if (this.phone.length > 11) {
                 this.phone = this.phone.slice(0, 11)
             }
+        },
+        checkBirthday () {
+            console.log(this.birthday)
+            const date = new Date()
+            const currentYear = date.getFullYear()
+
+            const birthdayArr = this.birthday.split('-')
+            if (birthdayArr[0] > currentYear) {
+                birthdayArr[0] = currentYear
+            }
+            if (birthdayArr[0] < 1920) {
+                birthdayArr[0] = 1920
+            }
+            this.birthday = birthdayArr.join('-')
         }
     },
     computed: { 
