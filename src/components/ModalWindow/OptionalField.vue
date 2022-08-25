@@ -9,6 +9,8 @@
                 <input
                     class="input"
                     type="text"
+                    v-model="card"
+                    @input="checkCard"
                 />
             </label>
             <div class="label">
@@ -36,7 +38,23 @@
 
 <script>
 export default {
-    name: 'OptionalField'
+    name: 'OptionalField',
+    data () {
+        return {
+            card: ''
+        }
+    },
+    methods: {
+        checkCard () {
+            this.card = this.card.replace(/\D/g, '')
+            if (this.card.length > 2) {
+                this.card = this.card.slice(0, 2) + '-' + this.card.slice(2)
+            }
+            if (this.card.length > 9) {
+                this.card = this.card.slice(0, 9)
+            }
+        }
+    }
 }
 </script>
 
