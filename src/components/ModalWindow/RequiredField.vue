@@ -18,6 +18,9 @@
                 <input
                     class="input"
                     type="text"
+                    name="surname"
+                    v-model="surname"
+                    @input="checkName($event)"
                 />
             </label>
             <label class="label">
@@ -25,6 +28,9 @@
                 <input
                     class="input"
                     type="text"
+                    name="firstName"
+                    v-model="firstName"
+                    @input="checkName($event)"
                 />
             </label>
             <label class="label">
@@ -114,6 +120,8 @@ export default {
         return {
             phone: '',
             birthday: '',
+            firstName: '',
+            surname: '',
         }
     },
     methods: {
@@ -124,7 +132,6 @@ export default {
             }
         },
         checkBirthday () {
-            console.log(this.birthday)
             const date = new Date()
             const currentYear = date.getFullYear()
 
@@ -132,10 +139,19 @@ export default {
             if (birthdayArr[0] > currentYear) {
                 birthdayArr[0] = currentYear
             }
-            if (birthdayArr[0] < 1920) {
+            if (birthdayArr[0] && birthdayArr[0] < 1920) {
                 birthdayArr[0] = 1920
             }
             this.birthday = birthdayArr.join('-')
+        },
+        checkName (e) {
+            let elem = e.target
+            let str = e.target.value
+            str = str.replace(/[^а-яёА-ЯЁ]/g,"")
+            if (str) {
+                str = str[0].toUpperCase() + str.slice(1)
+            }
+            this[elem.name] = str
         }
     },
     computed: { 
