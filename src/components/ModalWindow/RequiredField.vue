@@ -9,6 +9,8 @@
                 <input
                     class="input"
                     type="text"
+                    v-model="phoneNumber"
+                    @input="checkNumber"
                 />
             </label>
             <label class="label">
@@ -105,7 +107,32 @@
 
 <script>
 export default {
-    name: 'RequiredField'
+    name: 'RequiredField',
+    data () {
+        return {
+            phone: ''
+        }
+    },
+    methods: {
+        checkNumber () {
+            this.phone = this.phone.replace(/\D/g, '')
+            if (this.phone.length > 11) {
+                this.phone = this.phone.slice(0, 11)
+            }
+        }
+    },
+    computed: { 
+        phoneNumber: {
+            get () {
+                const x = this.phone.match(/(\d{0,1})(\d{0,3})(\d{0,3})(\d{0,2})(\d{0,2})/)
+                x[1] = '+7'
+                return !x[3] ? x[1] + ' ' + x[2] : x[1] + ' ' + x[2] + ' ' + x[3] + (x[4] ? '-' + x[4] : '') + (x[5] ? '-' + x[5] : '')
+            },
+            set (val) {
+                this.phone = val
+            }
+        }
+    }
 }
 </script>
 
