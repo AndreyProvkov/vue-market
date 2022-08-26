@@ -30,6 +30,8 @@
                 <input
                     class="input"
                     type="text"
+                    v-model="email"
+                    @input="checkEmail"
                 />
             </label>
         </div>
@@ -41,7 +43,8 @@ export default {
     name: 'OptionalField',
     data () {
         return {
-            card: ''
+            card: '',
+            email: ''
         }
     },
     methods: {
@@ -53,6 +56,10 @@ export default {
             if (this.card.length > 9) {
                 this.card = this.card.slice(0, 9)
             }
+        },
+        checkEmail () {
+            let validEmail = /.+@.+\..+/i.test(this.email)
+            console.log(validEmail)
         }
     }
 }
