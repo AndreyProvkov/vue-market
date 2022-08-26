@@ -81,9 +81,13 @@
             </label>
             <label class="label">
                 Населенный пункт
-                <input
-                    class="input"
-                    type="text"
+                <vue-dadata
+                    v-model="query"
+                    :token="token"
+                    :locationOptions="constraints"
+                    fromBound="city"
+                    toBound="city"
+                    :autocomplete="true"
                 />
             </label>
             <div class="label">
@@ -127,8 +131,14 @@
 </template>
 
 <script>
+import { ref } from 'vue';
+import { VueDadata } from 'vue-dadata';
+
 export default {
     name: 'RequiredField',
+    components: {
+        VueDadata
+    },
     data () {
         return {
             phone: '',
@@ -138,6 +148,19 @@ export default {
             gender: 'male',
             password: '',
             passwordRepeat: ''
+        }
+    },
+    setup() {
+        const query = ref('');
+
+        return {
+            token: '70984f274702eaf96bba357b60b21b82897d39ec',
+            query,
+            constraints: {
+                locations: { 
+                    region_fias_id: "92b30014-4d52-4e2e-892d-928142b924bf" 
+                },
+            },
         }
     },
     methods: {
@@ -173,6 +196,7 @@ export default {
             console.log(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]?).{5,}$/.test(this.password))
         },
         mouseUp (e) {
+            console.log(this.locations)
             e.target.previousElementSibling.type = 'password'
         },
         mouseDown (e) {
@@ -265,6 +289,19 @@ export default {
         background: #F3F2F1;
         transition: .3s all;
     }
+}
+.vue-dadata__input {
+    font-family: inherit;
+    font-size: inherit;
+    color: #414141 !important;
+    box-sizing: border-box;
+    padding: .8rem 1.6rem !important;
+    width: 100%;
+    background: #FFFFFF !important;
+    outline: none;
+    border-radius: 4px !important;
+    border: 1px solid #BFBFBF !important;
+    transition: .3s all;
 }
 .input {
     font-family: inherit;

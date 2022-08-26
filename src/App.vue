@@ -157,4 +157,44 @@ body {
     background: #ffe5d2;
   }
 }
+
+.vue-dadata {
+  position: relative;
+  &__input {
+      font-family: inherit;
+      font-size: inherit;
+      color: #414141;
+      box-sizing: border-box;
+      padding: .8rem 1.6rem;
+      width: 100%;
+      background: #FFFFFF;
+      outline: none;
+      border-radius: 4px;
+      border: 1px solid #BFBFBF;
+      transition: .3s all;
+      &:focus {
+          box-shadow: 4px 8px 16px rgba(112, 192, 91, 0.2);
+          border: 1px solid #70C05B;
+      }
+  }
+  &__suggestions {
+    position:absolute;
+    z-index:1;
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    background-color:#fff;
+    &-item {
+      padding:10px;
+      cursor:pointer;
+      transition:.3s;
+      &:hover {
+        background-color:#ffdfbd;
+      }
+      &_current {
+        background-color:#fff5e7;
+      }
+    }
+  }
+}
 </style>
