@@ -88,6 +88,8 @@
                         type="radio"
                         name="gender"
                         class="input__gender"
+                        v-model="gender"
+                        value="male"
                     />
                     <label
                         class="label__radio-btn"
@@ -100,6 +102,8 @@
                         type="radio"
                         name="gender"
                         class="input__gender"
+                        v-model="gender"
+                        value="female"
                     />
                     <label
                         class="label__radio-btn"
@@ -122,6 +126,7 @@ export default {
             birthday: '',
             firstName: '',
             surname: '',
+            gender: 'male'
         }
     },
     methods: {
