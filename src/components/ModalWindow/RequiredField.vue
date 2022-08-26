@@ -38,11 +38,16 @@
                 <div class="label__password">
                     <input
                         class="input input__password"
-                        type="text"
+                        type="password"
+                        name="password"
+                        v-model="password"
+                        @input="checkPass"
                     />
                     <button
                         class="btn-show-pass"
                         type="button"
+                        @mouseup="mouseUp($event)"
+                        @mousedown="mouseDown($event)"
                     ></button>
                 </div>
             </label>
@@ -51,11 +56,15 @@
                 <div class="label__password">
                     <input
                         class="input input__password"
-                        type="text"
+                        type="password"
+                        name="passwordRepeat"
+                        v-model="passwordRepeat"
                     />
                     <button
                         class="btn-show-pass"
                         type="button"
+                        @mouseup="mouseUp($event)"
+                        @mousedown="mouseDown($event)"
                     ></button>
                 </div>
             </label>
@@ -126,7 +135,9 @@ export default {
             birthday: '',
             firstName: '',
             surname: '',
-            gender: 'male'
+            gender: 'male',
+            password: '',
+            passwordRepeat: ''
         }
     },
     methods: {
@@ -157,6 +168,15 @@ export default {
                 str = str[0].toUpperCase() + str.slice(1)
             }
             this[elem.name] = str
+        },
+        checkPass () {
+            console.log(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]?).{5,}$/.test(this.password))
+        },
+        mouseUp (e) {
+            e.target.previousElementSibling.type = 'password'
+        },
+        mouseDown (e) {
+            e.target.previousElementSibling.type = 'text'
         }
     },
     computed: { 
