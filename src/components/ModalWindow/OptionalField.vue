@@ -18,8 +18,12 @@
                     id="no-card"
                     class="input__checkbox"
                     type="checkbox"
+                    v-model="isNoCard"
                 />
-                <label for="no-card" class="label__checkbox">
+                <label
+                    for="no-card"
+                    class="label__checkbox"
+                >
                     У меня нет карты лояльности
                 </label>
             </div>
@@ -44,7 +48,8 @@ export default {
     data () {
         return {
             card: '',
-            email: ''
+            email: '',
+            isNoCard: false
         }
     },
     methods: {
