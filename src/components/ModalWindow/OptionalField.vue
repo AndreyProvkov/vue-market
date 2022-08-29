@@ -57,11 +57,11 @@
 <script>
 export default {
     name: 'OptionalField',
-    data () {
+    data() {
         return {
             card: '',
-            email: '',
-            isNoCard: false
+            isNoCard: false,
+            email: ''
         }
     },
     props: {
@@ -87,10 +87,6 @@ export default {
             if (this.card.length > 9) {
                 this.card = this.card.slice(0, 9)
             }
-        },
-        checkEmail () {
-            let validEmail = /.+@.+\..+/i.test(this.email)
-            console.log(validEmail)
         }
     }
 }

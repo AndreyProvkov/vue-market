@@ -180,12 +180,12 @@ export default {
     data () {
         return {
             phone: '',
-            birthday: '',
-            firstName: '',
             surname: '',
-            gender: 'male',
+            firstName: '',
             password: '',
-            passwordRepeat: ''
+            passwordRepeat: '',
+            birthday: '',
+            gender: 'male'
         }
     },
     setup() {
@@ -250,7 +250,6 @@ export default {
         inputBirthday(e) {
             const date = new Date()
             const currentYear = date.getFullYear()
-
             const birthdayArr = this.birthday.split('-')
 
             if (birthdayArr[0].length >= 4) {
