@@ -230,21 +230,41 @@ export default {
         },
         inputNumber() {
             this.phone = this.phone.replace(/\D/g, '')
+
             if (this.phone.length > 11) {
                 this.phone = this.phone.slice(0, 11)
             }
         },
-        checkBirthday () {
+        inputName(el, value) {
+            value = value.replace(/[^а-яёА-ЯЁ]/g,"")
+
+            if (value) {
+                value = value[0].toUpperCase() + value.slice(1)
+            }
+
+            this[el.name] = value
+        },
+        inputPass() {
+            this.password = this.password.replace(/[а-яёА-ЯЁ]|\s+/gi, '')
+        },
+        inputBirthday(e) {
             const date = new Date()
             const currentYear = date.getFullYear()
 
             const birthdayArr = this.birthday.split('-')
-            if (birthdayArr[0] > currentYear) {
-                birthdayArr[0] = currentYear
+
+            if (birthdayArr[0].length >= 4) {
+                if (birthdayArr[0] > currentYear) {
+                    birthdayArr[0] = currentYear
+                }
             }
-            if (birthdayArr[0] && birthdayArr[0] < 1920) {
-                birthdayArr[0] = 1920
+
+            if (e.type === 'blur') {
+                if (birthdayArr[0] && birthdayArr[0] < 1920) {
+                    birthdayArr[0] = 1920
+                }
             }
+
             this.birthday = birthdayArr.join('-')
         },
         hidePass(e) {

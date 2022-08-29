@@ -79,9 +79,11 @@ export default {
         },
         inputCard () {
             this.card = this.card.replace(/\D/g, '')
+
             if (this.card.length > 2) {
                 this.card = this.card.slice(0, 2) + '-' + this.card.slice(2)
             }
+
             if (this.card.length > 9) {
                 this.card = this.card.slice(0, 9)
             }
