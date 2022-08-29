@@ -29,8 +29,8 @@ import RegistrationForm from './RegistrationForm.vue'
 export default {
     name: 'ModalWindow',
     components: {
-    SuccessRegistration,
-    RegistrationForm
+        SuccessRegistration,
+        RegistrationForm
     },
     props: {
         errorsRegistryForm: Object,
