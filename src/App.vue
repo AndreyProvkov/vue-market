@@ -352,6 +352,12 @@ body {
 
 .vue-dadata {
   position: relative;
+  &_error {
+    & input:focus {
+        box-shadow: 4px 8px 16px rgba(192, 91, 91, 0.2);
+        border: 1px solid red;
+    }
+  }
   &__input {
       font-family: inherit;
       font-size: inherit;
