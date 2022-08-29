@@ -60,8 +60,8 @@
                     <button
                         class="btn-show-pass"
                         type="button"
-                        @mouseup="mouseUp($event)"
-                        @mousedown="mouseDown($event)"
+                        @mouseup="hidePass($event)"
+                        @mousedown="showPass($event)"
                     ></button>
                     <span class="label__error">
                         {{errorsRegistryForm.password}}
@@ -82,8 +82,8 @@
                     <button
                         class="btn-show-pass"
                         type="button"
-                        @mouseup="mouseUp($event)"
-                        @mousedown="mouseDown($event)"
+                        @mouseup="hidePass($event)"
+                        @mousedown="showPass($event)"
                     ></button>
                     <span class="label__error">
                         {{errorsRegistryForm.passwordRepeat}}
@@ -247,23 +247,10 @@ export default {
             }
             this.birthday = birthdayArr.join('-')
         },
-        checkName (e) {
-            let elem = e.target
-            let str = e.target.value
-            str = str.replace(/[^а-яёА-ЯЁ]/g,"")
-            if (str) {
-                str = str[0].toUpperCase() + str.slice(1)
-            }
-            this[elem.name] = str
-        },
-        checkPass () {
-            console.log(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]?).{5,}$/.test(this.password))
-        },
-        mouseUp (e) {
-            console.log(this.locations)
+        hidePass(e) {
             e.target.previousElementSibling.type = 'password'
         },
-        mouseDown (e) {
+        showPass(e) {
             e.target.previousElementSibling.type = 'text'
         }
     },
