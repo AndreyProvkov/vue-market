@@ -1,7 +1,7 @@
 <template>
-    <h1>HOME</h1>
+    <h1>Главная</h1>
     <router-link to="/catalog">
-        Catalog
+        Каталог
     </router-link>
 </template>
 
@@ -10,3 +10,10 @@ export default {
     name: 'HomeView'
 }
 </script>
+
+<style scoped lang="scss">
+h1 {
+    margin: 0;
+    margin-bottom: 2rem;
+}
+</style>
