@@ -110,7 +110,7 @@
             <label class="label">
                 Населенный пункт
                 <vue-dadata
-                    v-model="query"
+                    v-model="city"
                     :token="token"
                     :locationOptions="constraints"
                     fromBound="city"
@@ -189,11 +189,11 @@ export default {
         }
     },
     setup() {
-        const query = ref('');
+        const city = ref('');
 
         return {
             token: '70984f274702eaf96bba357b60b21b82897d39ec',
-            query,
+            city,
             constraints: {
                 locations: { 
                     region_fias_id: "92b30014-4d52-4e2e-892d-928142b924bf" 
