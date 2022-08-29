@@ -345,6 +345,13 @@ export default {
         background: #F3F2F1;
         transition: .3s all;
     }
+    &__error {
+        position: absolute;
+        left: 0;
+        bottom: -2rem;
+        font-size: 1rem;
+        color: red;
+    }
 }
 .vue-dadata__input {
     font-family: inherit;
@@ -385,6 +392,12 @@ export default {
         &:checked + .label__radio-btn {
             background: #70C05B;
             color: #fff;
+        }
+    }
+    &_error {
+        &:focus {
+            box-shadow: 4px 8px 16px rgba(192, 91, 91, 0.2);
+            border: 1px solid red;
         }
     }
 }

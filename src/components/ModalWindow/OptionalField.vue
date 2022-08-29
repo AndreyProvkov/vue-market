@@ -160,6 +160,13 @@ export default {
             margin-right: .8rem;
         }
     }
+    &__error {
+        position: absolute;
+        left: 0;
+        bottom: -2rem;
+        font-size: 1rem;
+        color: red;
+    }
 }
 .input {
     font-family: inherit;
@@ -189,6 +196,12 @@ export default {
             display: flex;
             align-items: center;
             justify-content: center;
+        }
+    }
+    &_error {
+        &:focus {
+            box-shadow: 4px 8px 16px rgba(192, 91, 91, 0.2);
+            border: 1px solid red;
         }
     }
 }
