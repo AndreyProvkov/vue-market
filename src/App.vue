@@ -259,6 +259,31 @@ export default {
       } else {
         this.errorsRegistryForm.email = ''
       }
+    },
+    submit() {
+        this.checkNumber()
+        this.checkName('surname')
+        this.checkName('firstName')
+        this.checkPass()
+        this.checkPasswordRepeat()
+        this.checkBirthday()
+        this.checkCity()
+
+        if (this.registryForm.card.length > 0) {
+          this.checkCard()
+        }
+
+        if (this.registryForm.email.length > 0) {
+          this.checkEmail()
+        }
+
+        for (let value of Object.values(this.errorsRegistryForm)) {
+          if (value !== '') {
+            return
+          }
+        }
+
+        this.showSuccessRegistration = true
     }
   }
 }
