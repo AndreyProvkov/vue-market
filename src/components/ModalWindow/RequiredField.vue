@@ -9,6 +9,7 @@
                 <input
                     class="input"
                     type="text"
+                    name="phone"
                     v-model="phoneNumber"
                     @input="checkNumber"
                 />
@@ -75,6 +76,7 @@
                 <input
                     class="input"
                     type="date"
+                    name="birthday"
                     v-model="birthday"
                     @blur="checkBirthday"
                 />

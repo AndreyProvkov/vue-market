@@ -9,6 +9,7 @@
                 <input
                     class="input"
                     type="text"
+                    name="card"
                     v-model="card"
                     @input="checkCard"
                 />
@@ -34,6 +35,7 @@
                 <input
                     class="input"
                     type="text"
+                    name="email"
                     v-model="email"
                     @input="checkEmail"
                 />
