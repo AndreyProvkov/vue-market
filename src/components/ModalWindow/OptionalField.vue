@@ -23,6 +23,7 @@
                     id="no-card"
                     class="input__checkbox"
                     type="checkbox"
+                    name="isNoCard"
                     v-model="isNoCard"
                     @change="handlerInput"
                 />
