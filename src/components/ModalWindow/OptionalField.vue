@@ -8,11 +8,15 @@
                 Номер карты
                 <input
                     class="input"
+                    :class="{'input_error': !!errorsRegistryForm.card}"
                     type="text"
                     name="card"
                     v-model="card"
                     @input="handlerInput"
                 />
+                <span class="label__error">
+                    {{errorsRegistryForm.card}}
+                </span>
             </label>
             <div class="label">
                 <input
@@ -35,11 +39,15 @@
                 E-mail
                 <input
                     class="input"
+                    :class="{'input_error': !!errorsRegistryForm.email}"
                     type="text"
                     name="email"
                     v-model="email"
                     @input="handlerInput"
                 />
+                <span class="label__error">
+                    {{errorsRegistryForm.email}}
+                </span>
             </label>
         </div>
     </div>
@@ -54,6 +62,9 @@ export default {
             email: '',
             isNoCard: false
         }
+    },
+    props: {
+        errorsRegistryForm: Object
     },
     methods: {
         handlerInput(e) {

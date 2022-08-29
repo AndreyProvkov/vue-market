@@ -8,37 +8,50 @@
                 Телефон
                 <input
                     class="input"
+                    :class="{'input_error': !!errorsRegistryForm.phone}"
                     type="text"
                     name="phone"
                     v-model="phoneNumber"
                     @input="handlerInput"
                 />
+                <span class="label__error">
+                    {{errorsRegistryForm.phone}}
+                </span>
             </label>
             <label class="label">
                 Фамилия
                 <input
                     class="input"
+                    :class="{'input_error': !!errorsRegistryForm.surname}"
                     type="text"
                     name="surname"
                     v-model="surname"
                     @input="handlerInput"
                 />
+                <span class="label__error">
+                    {{errorsRegistryForm.surname}}
+                </span>
             </label>
             <label class="label">
                 Имя
                 <input
                     class="input"
+                    :class="{'input_error': !!errorsRegistryForm.firstName}"
                     type="text"
                     name="firstName"
                     v-model="firstName"
                     @input="handlerInput"
                 />
+                <span class="label__error">
+                    {{errorsRegistryForm.firstName}}
+                </span>
             </label>
             <label class="label">
                 Пароль
                 <div class="label__password">
                     <input
                         class="input input__password"
+                        :class="{'input_error': !!errorsRegistryForm.password}"
                         type="password"
                         name="password"
                         v-model="password"
@@ -50,6 +63,9 @@
                         @mouseup="mouseUp($event)"
                         @mousedown="mouseDown($event)"
                     ></button>
+                    <span class="label__error">
+                        {{errorsRegistryForm.password}}
+                    </span>
                 </div>
             </label>
             <label class="label">
@@ -57,6 +73,7 @@
                 <div class="label__password">
                     <input
                         class="input input__password"
+                        :class="{'input_error': !!errorsRegistryForm.passwordRepeat}"
                         type="password"
                         name="passwordRepeat"
                         v-model="passwordRepeat"
@@ -68,6 +85,9 @@
                         @mouseup="mouseUp($event)"
                         @mousedown="mouseDown($event)"
                     ></button>
+                    <span class="label__error">
+                        {{errorsRegistryForm.passwordRepeat}}
+                    </span>
                 </div>
             </label>
         </div>
@@ -76,12 +96,16 @@
                 Дата рождения
                 <input
                     class="input"
+                    :class="{'input_error': !!errorsRegistryForm.birthday}"
                     type="date"
                     name="birthday"
                     v-model="birthday"
                     @input="handlerInput"
                     @blur="handlerInput"
                 />
+                <span class="label__error">
+                    {{errorsRegistryForm.birthday}}
+                </span>
             </label>
             <label class="label">
                 Населенный пункт
@@ -92,7 +116,12 @@
                     fromBound="city"
                     toBound="city"
                     :autocomplete="true"
+                    inputName="city"
+                    :class="{'vue-dadata_error': !!errorsRegistryForm.city}"
                 />
+                <span class="label__error">
+                    {{errorsRegistryForm.city}}
+                </span>
             </label>
             <div class="label">
                 <span class="label__text">
@@ -144,6 +173,9 @@ export default {
     name: 'RequiredField',
     components: {
         VueDadata
+    },
+    props: {
+        errorsRegistryForm: Object
     },
     data () {
         return {
