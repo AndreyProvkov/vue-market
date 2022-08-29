@@ -151,6 +151,113 @@ export default {
       }
       if (el.dataset.modal === 'close' || el.closest('.modal__close')) {
         this.modalActive = false
+        this.showSuccessRegistration = false
+      }
+    },
+    handlerInput ({name, str}) {
+      this.registryForm[name] = str
+
+      if (name === 'phone') {
+        this.checkNumber()
+      }
+
+      if (name === 'firstName' || name === 'surname') {
+        this.checkName(name)
+      }
+
+      if (name === 'password') {
+        this.checkPass()
+        this.checkPasswordRepeat()
+      }
+
+      if (name === 'passwordRepeat') {
+        this.checkPasswordRepeat()
+      }
+
+      if (name === 'birthday') {
+        this.checkBirthday()
+      }
+
+      if (name === 'city') {
+        this.checkCity()
+      }
+
+      if (name === 'card') {
+        this.checkCard()
+      }
+
+      if (name === 'email') {
+        this.checkEmail()
+      }
+    },
+    checkNumber() {
+      if (this.registryForm.phone.length < 11) {
+        this.errorsRegistryForm.phone = this.errors.phone.length
+      } else {
+        this.errorsRegistryForm.phone = ''
+      }
+    },
+    checkName(name) {
+      if (this.registryForm[name].length < 3) {
+        this.errorsRegistryForm[name] = this.errors.name.length
+      } else {
+        this.errorsRegistryForm[name] = ''
+      }
+    },
+    checkPass() {
+      if (this.registryForm.password.length < 5) {
+        this.errorsRegistryForm.password = this.errors.password.length
+      } else if (!/(?=.*[a-z])/.test(this.registryForm.password)) {
+        this.errorsRegistryForm.password = this.errors.password.lowercaseLetter
+      } else if (!/(?=.*[A-Z])/.test(this.registryForm.password)) {
+        this.errorsRegistryForm.password = this.errors.password.capitalLetter
+      } else if (!/(?=.*[0-9])/.test(this.registryForm.password)) {
+        this.errorsRegistryForm.password = this.errors.password.number
+      } else {
+        this.errorsRegistryForm.password = ''
+      }
+    },
+    checkPasswordRepeat() {
+      if (this.registryForm.passwordRepeat !== this.registryForm.password) {
+        this.errorsRegistryForm.passwordRepeat = this.errors.repeatPassword.similar
+      } else {
+        this.errorsRegistryForm.passwordRepeat = ''
+      }
+    },
+    checkBirthday() {
+      const date = new Date()
+      const currentYear = date.getFullYear()
+      const birthdayArr = this.registryForm.birthday.split('-')
+
+      if (this.registryForm.birthday === '') {
+        this.errorsRegistryForm.birthday = this.errors.birthday.date
+      } else if (birthdayArr[0] > currentYear) {
+        this.errorsRegistryForm.birthday = this.errors.birthday.maxYear
+      } else if (birthdayArr[0] < 1920) {
+        this.errorsRegistryForm.birthday = this.errors.birthday.minYear
+      } else {
+        this.errorsRegistryForm.birthday = ''
+      }
+    },
+    checkCity() {
+      if (this.registryForm.city === '') {
+        this.errorsRegistryForm.city = this.errors.city.input
+      } else {
+        this.errorsRegistryForm.city = ''
+      }
+    },
+    checkCard() {
+      if (this.registryForm.card.length > 0 && this.registryForm.card.length < 9) {
+        this.errorsRegistryForm.card = this.errors.card.length
+      } else {
+        this.errorsRegistryForm.card = ''
+      }
+    },
+    checkEmail () {
+      if (!/.+@.+\..+/i.test(this.registryForm.email) && this.registryForm.email.length > 0) {
+        this.errorsRegistryForm.email = this.errors.email.format
+      } else {
+        this.errorsRegistryForm.email = ''
       }
     }
   }
