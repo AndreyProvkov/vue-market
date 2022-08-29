@@ -137,6 +137,7 @@ export default {
     text-align: left;
     color: #8F8F8F;
     margin-bottom: 1.6rem;
+    position: relative;
     @media screen and (max-width: 550px) {
         width: 85%;
         margin: 0 auto 1.6rem;
