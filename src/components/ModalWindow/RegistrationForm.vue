@@ -7,8 +7,14 @@
             class="form"
             @submit.prevent="submit"
         >
-            <RequiredField />
-            <OptionalField />
+            <RequiredField 
+                :errorsRegistryForm="errorsRegistryForm"
+                @handlerInput="handlerInput"
+            />
+            <OptionalField
+                :errorsRegistryForm="errorsRegistryForm"
+                @handlerInput="handlerInput"
+            />
             <div class="form__btn">
                 <button
                     class="btn-modal"
@@ -31,9 +37,15 @@ export default {
         RequiredField,
         OptionalField
     },
+    props: {
+        errorsRegistryForm: Object,
+    },
     methods: {
         submit () {
-            this.$emit('submit', true)
+            this.$emit('submit')
+        },
+        handlerInput (e) {
+            this.$emit('handlerInput', e)
         }
     }
 }

@@ -13,6 +13,8 @@
             </button>
             <RegistrationForm
                 @submit="submit"
+                @handlerInput="handlerInput"
+                :errorsRegistryForm="errorsRegistryForm"
                 v-if="!showSuccessRegistration"
             />
             <SuccessRegistration v-else />
@@ -30,17 +32,19 @@ export default {
     SuccessRegistration,
     RegistrationForm
     },
-    data() {
-        return {
-            showSuccessRegistration: false
-        }
+    props: {
+        errorsRegistryForm: Object,
+        showSuccessRegistration: Boolean
     },
     methods: {
         toggleModalWindow (e) {
             this.$emit('toggleModalWindow', e)
         },
-        submit (success) {
-            this.showSuccessRegistration = success
+        submit() {
+            this.$emit('submit')
+        },
+        handlerInput (e) {
+            this.$emit('handlerInput', e)
         }
     }
 }

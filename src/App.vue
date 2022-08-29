@@ -2,6 +2,10 @@
   <ModalWindow
     v-if="modalActive"
     @toggleModalWindow="toggleModalWindow($event)"
+    @handlerInput="handlerInput"
+    @submit="submit"
+    :errorsRegistryForm="errorsRegistryForm"
+    :showSuccessRegistration="showSuccessRegistration"
   />
   <HeaderBar @toggleModalWindow="toggleModalWindow($event)" />
   <div class='wrapper'>
