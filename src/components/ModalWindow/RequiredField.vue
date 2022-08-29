@@ -11,7 +11,7 @@
                     type="text"
                     name="phone"
                     v-model="phoneNumber"
-                    @input="checkNumber"
+                    @input="handlerInput"
                 />
             </label>
             <label class="label">
@@ -21,7 +21,7 @@
                     type="text"
                     name="surname"
                     v-model="surname"
-                    @input="checkName($event)"
+                    @input="handlerInput"
                 />
             </label>
             <label class="label">
@@ -31,7 +31,7 @@
                     type="text"
                     name="firstName"
                     v-model="firstName"
-                    @input="checkName($event)"
+                    @input="handlerInput"
                 />
             </label>
             <label class="label">
@@ -42,7 +42,7 @@
                         type="password"
                         name="password"
                         v-model="password"
-                        @input="checkPass"
+                        @input="handlerInput"
                     />
                     <button
                         class="btn-show-pass"
@@ -60,6 +60,7 @@
                         type="password"
                         name="passwordRepeat"
                         v-model="passwordRepeat"
+                        @input="handlerInput"
                     />
                     <button
                         class="btn-show-pass"
@@ -78,7 +79,8 @@
                     type="date"
                     name="birthday"
                     v-model="birthday"
-                    @blur="checkBirthday"
+                    @input="handlerInput"
+                    @blur="handlerInput"
                 />
             </label>
             <label class="label">
@@ -105,6 +107,7 @@
                         class="input__gender"
                         v-model="gender"
                         value="male"
+                        @change="handlerInput"
                     />
                     <label
                         class="label__radio-btn"
@@ -119,6 +122,7 @@
                         class="input__gender"
                         v-model="gender"
                         value="female"
+                        @change="handlerInput"
                     />
                     <label
                         class="label__radio-btn"
@@ -166,7 +170,33 @@ export default {
         }
     },
     methods: {
-        checkNumber () {
+        handlerInput(e) {
+            const el = e.target
+            const value = el.value
+           
+            if (el.name === 'phone') {
+                this.inputNumber()
+            }
+
+            if (el.name === 'surname' || el.name === 'firstName') {
+                this.inputName(el, value)
+            }
+
+            if (el.name === 'password') {
+                this.inputPass()
+            }
+
+            if (el.name === 'passwordRepeat') {
+                this.inputPass()
+            }
+
+            if (el.name === 'birthday') {
+                this.inputBirthday(e)
+            }
+
+            this.$emit('handlerInput', {name: el.name, str: this[el.name]})
+        },
+        inputNumber() {
             this.phone = this.phone.replace(/\D/g, '')
             if (this.phone.length > 11) {
                 this.phone = this.phone.slice(0, 11)

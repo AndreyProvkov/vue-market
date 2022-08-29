@@ -11,7 +11,7 @@
                     type="text"
                     name="card"
                     v-model="card"
-                    @input="checkCard"
+                    @input="handlerInput"
                 />
             </label>
             <div class="label">
@@ -20,6 +20,7 @@
                     class="input__checkbox"
                     type="checkbox"
                     v-model="isNoCard"
+                    @change="handlerInput"
                 />
                 <label
                     for="no-card"
@@ -37,7 +38,7 @@
                     type="text"
                     name="email"
                     v-model="email"
-                    @input="checkEmail"
+                    @input="handlerInput"
                 />
             </label>
         </div>
@@ -55,7 +56,16 @@ export default {
         }
     },
     methods: {
-        checkCard () {
+        handlerInput(e) {
+            const el = e.target
+
+            if (el.name === 'card') {
+                this.inputCard()
+            }
+
+            this.$emit('handlerInput', {name: el.name, str: this[el.name]})
+        },
+        inputCard () {
             this.card = this.card.replace(/\D/g, '')
             if (this.card.length > 2) {
                 this.card = this.card.slice(0, 2) + '-' + this.card.slice(2)
