@@ -28,7 +28,63 @@ export default {
   },
   data() {
     return {
+      showSuccessRegistration: false,
       modalActive: false,
+      registryForm: {
+        phone: '',
+        birthday: '',
+        firstName: '',
+        surname: '',
+        gender: 'male',
+        city: '',
+        password: '',
+        passwordRepeat: '',
+        card: '',
+        email: '',
+        isNoCard: false
+      },
+      errorsRegistryForm: {
+        phone: '',
+        birthday: '',
+        firstName: '',
+        surname: '',
+        city: '',
+        password: '',
+        passwordRepeat: '',
+        card: '',
+        email: ''
+      },
+      errors: {
+        phone: {
+          length: 'Неверная длина номера'
+        },
+        name: {
+          length: 'Минимальная длина слова 3 буквы'
+        },
+        password: {
+          length: 'Минимальная длина пароля 5 символов',
+          capitalLetter: 'Пароль должен содержать заглавную букву',
+          lowercaseLetter: 'Пароль должен содержать строчную букву',
+          number: 'Пароль должен содержать цифру'
+        },
+        repeatPassword: {
+          similar: 'Пароли не совпадают'
+        },
+        birthday: {
+          date: 'Дата должна быть в формате dd.mm.yyyy',
+          maxYear: `Указанный год не может быть больше ${new Date().getFullYear()}`,
+          minYear: 'Указанный год не может быть меньше 1920'
+        },
+        city: {
+          input: 'Поле не заполнено'
+        },
+        card: {
+          length: 'Номер карты должен состоять из 8-ми цифр'
+        },
+        email: {
+          format: 'Email должен быть в формате *@*.*'
+        }
+      },
       catalogItems: [
         {
           id: 1,
