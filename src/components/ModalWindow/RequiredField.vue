@@ -254,6 +254,11 @@ export default {
             e.target.previousElementSibling.type = 'text'
         }
     },
+    watch: {
+        city (val) {
+            this.$emit('handlerInput', {name: 'city', str: val})
+        }
+    },
     computed: { 
         phoneNumber: {
             get () {
